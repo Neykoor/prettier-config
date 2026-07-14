@@ -17,19 +17,34 @@
   ],
   "exports": {
     ".": {
-      "types": "./lib/index.d.ts",
-      "import": "./lib-esm/index.js",
-      "require": "./lib/index.js"
+      "import": {
+        "types": "./lib-esm/index.d.ts",
+        "default": "./lib-esm/index.js"
+      },
+      "require": {
+        "types": "./lib/index.d.ts",
+        "default": "./lib/index.js"
+      }
     },
     "./flat": {
-      "types": "./lib/flat.d.ts",
-      "import": "./lib-esm/flat.js",
-      "require": "./lib/flat.js"
+      "import": {
+        "types": "./lib-esm/flat.d.ts",
+        "default": "./lib-esm/flat.js"
+      },
+      "require": {
+        "types": "./lib/flat.d.ts",
+        "default": "./lib/flat.js"
+      }
     },
     "./style": {
-      "types": "./lib/style.d.ts",
-      "import": "./lib-esm/style.js",
-      "require": "./lib/style.js"
+      "import": {
+        "types": "./lib-esm/style.d.ts",
+        "default": "./lib-esm/style.js"
+      },
+      "require": {
+        "types": "./lib/style.d.ts",
+        "default": "./lib/style.js"
+      }
     },
     "./prettier": "./prettier.config.js"
   },
