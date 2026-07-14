@@ -1,0 +1,69 @@
+{
+  "name": "@neykoor/prettier-config",
+  "version": "0.1.0",
+  "description": "Shared Prettier style preset plus ESLint rules disabled to avoid conflicts with Prettier (CJS, ESM and flat config)",
+  "main": "lib/index.js",
+  "module": "lib-esm/index.js",
+  "types": "lib/index.d.ts",
+  "prettier": "./prettier.config.js",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "lib",
+    "lib-esm",
+    "prettier.config.js"
+  ],
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib-esm/index.js",
+      "require": "./lib/index.js"
+    },
+    "./flat": {
+      "types": "./lib/flat.d.ts",
+      "import": "./lib-esm/flat.js",
+      "require": "./lib/flat.js"
+    },
+    "./style": {
+      "types": "./lib/style.d.ts",
+      "import": "./lib-esm/style.js",
+      "require": "./lib/style.js"
+    },
+    "./prettier": "./prettier.config.js"
+  },
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "npm run build:cjs && npm run build:esm",
+    "build:cjs": "tsc -p tsconfig.json",
+    "build:esm": "tsc -p tsconfig.esm.json && node -e \"require('fs').writeFileSync('lib-esm/package.json', JSON.stringify({ type: 'module' }))\"",
+    "check-sync": "npm run build:cjs && node scripts/check-sync.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neykoor/prettier-config.git"
+  },
+  "homepage": "https://github.com/neykoor/prettier-config#readme",
+  "bugs": {
+    "url": "https://github.com/neykoor/prettier-config/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Neykoor",
+  "license": "MIT",
+  "keywords": [
+    "eslint",
+    "prettier",
+    "prettier-config",
+    "eslint-config",
+    "typescript",
+    "code-style"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "eslint-config-prettier": "^9.1.0",
+    "typescript": "^5.4.5"
+  }
+}
