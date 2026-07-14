@@ -1,3 +1,5 @@
+<img src="./assets/banner.png" alt="@neykoor/prettier-config" width="100%" />
+
 # @neykoor/prettier-config
 
 Shared Prettier style preset, plus the ESLint rules turned off to avoid conflicts with Prettier. Works with the legacy `.eslintrc` format and with ESLint's flat config.
